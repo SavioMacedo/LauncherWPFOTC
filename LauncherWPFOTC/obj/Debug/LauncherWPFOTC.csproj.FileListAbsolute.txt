@@ -21,4 +21,3 @@ c:\users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFO
 c:\users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\bin\Debug\LibGit2Sharp.dll
 c:\users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\bin\Debug\LibGit2Sharp.pdb
 c:\users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\bin\Debug\LibGit2Sharp.xml
-C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\obj\Debug\LauncherWPFOTC.csprojResolveAssemblyReference.cache

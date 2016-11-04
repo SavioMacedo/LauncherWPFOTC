@@ -12,8 +12,6 @@ namespace LauncherWPFOTC.Classes
         private string git = AppDomain.CurrentDomain.BaseDirectory + "cliente/";
         private string gitNome = Properties.Settings.Default.Nome;
         private string gitEmail = Properties.Settings.Default.Email;
-        private string labelContent = "";
-        private int progresso;
         BackgroundWorker Worker;
         public void initGit(BackgroundWorker worker)
         {

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace LauncherWPFOTC
 {
@@ -13,18 +14,24 @@ namespace LauncherWPFOTC
         //Instanciando Classes
         Noticia noticias = new Noticia();
         GitHub github = new GitHub();
-        BackgroundWorker worker;
         private Personalizacao personaliza;
         private bool flag = false;
 
         public MainWindow()
         {
             InitializeComponent();
+            //Sistema de Imagens Dinamicas.
             personaliza = new Personalizacao { urlbackground = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.Background, urlfechar = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.BtnFechar, urlminimize = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.BtnMinimizar };
             this.DataContext = personaliza;
+            //Cores dinamicas.
+            Borda.Background = (Brush)new BrushConverter().ConvertFrom(Properties.Settings.Default.EsquemaCor);
+            btnJogar.Background = (Brush)new BrushConverter().ConvertFrom(Properties.Settings.Default.EsquemaCor);
+            barraProgresso.Foreground = (Brush)new BrushConverter().ConvertFrom(Properties.Settings.Default.EsquemaCor);
+            //Aciona a movimentação do launcher com o mouse.
             MouseDown += Windows_MouseDown;
         }
 
+        //Função que realiza a movimentação do Launcher com o mouse.
         private void Windows_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -33,6 +40,7 @@ namespace LauncherWPFOTC
 
         private void Window_Initialized(object sender, EventArgs e)
         {
+            //Seta Titulo do Launcher.
             label2.Content = Janela.Title + Properties.Settings.Default.NomeOT;
             //Seta configuração do OTC.
             if (Properties.Settings.Default.OTClient == true)
@@ -40,7 +48,7 @@ namespace LauncherWPFOTC
             //seta navegação da webview(noticasarea).
             noticiasArea.Navigate(noticias.getNoticia());
         }
-
+        //Função de acionamento do botão jogar.
         private void btnJogar_Click(object sender, RoutedEventArgs e)
         {
             if (!flag)

@@ -29,5 +29,8 @@
     <Setting Name="BtnMinimizar" Type="System.String" Scope="User">
       <Value Profile="(Default)">minimize.png</Value>
     </Setting>
+    <Setting Name="EsquemaCor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FF05003C</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

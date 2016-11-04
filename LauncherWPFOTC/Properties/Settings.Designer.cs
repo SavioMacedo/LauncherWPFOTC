@@ -130,5 +130,17 @@ namespace LauncherWPFOTC.Properties {
                 this["BtnMinimizar"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF05003C")]
+        public string EsquemaCor {
+            get {
+                return ((string)(this["EsquemaCor"]));
+            }
+            set {
+                this["EsquemaCor"] = value;
+            }
+        }
     }
 }

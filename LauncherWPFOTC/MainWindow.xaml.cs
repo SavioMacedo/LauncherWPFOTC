@@ -11,22 +11,25 @@ namespace LauncherWPFOTC
     // code por Savio Macedo.
     public partial class MainWindow : Window
     {
-        //Instanciando Classes
+        //Instanciando Classes.
         Noticia noticias = new Noticia();
         GitHub github = new GitHub();
+        //Declarando Variaveis.
         private Personalizacao personaliza;
         private bool flag = false;
 
         public MainWindow()
         {
             InitializeComponent();
-            //Sistema de Imagens Dinamicas.
-            personaliza = new Personalizacao { urlbackground = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.Background, urlfechar = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.BtnFechar, urlminimize = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.BtnMinimizar };
+            //Sistema de Personalizacao.
+            personaliza = new Personalizacao
+            {
+                urlbackground = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.Background,
+                urlfechar = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.BtnFechar,
+                urlminimize = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.BtnMinimizar,
+                cor = Properties.Settings.Default.EsquemaCor
+            };
             this.DataContext = personaliza;
-            //Cores dinamicas.
-            Borda.Background = (Brush)new BrushConverter().ConvertFrom(Properties.Settings.Default.EsquemaCor);
-            btnJogar.Background = (Brush)new BrushConverter().ConvertFrom(Properties.Settings.Default.EsquemaCor);
-            barraProgresso.Foreground = (Brush)new BrushConverter().ConvertFrom(Properties.Settings.Default.EsquemaCor);
             //Aciona a movimentação do launcher com o mouse.
             MouseDown += Windows_MouseDown;
         }
@@ -45,7 +48,7 @@ namespace LauncherWPFOTC
             //Seta configuração do OTC.
             if (Properties.Settings.Default.OTClient == true)
                 comboBox.Visibility = Visibility.Visible;
-            //seta navegação da webview(noticasarea).
+            //Seta navegação da webview(noticasarea).
             noticiasArea.Navigate(noticias.getNoticia());
         }
         //Função de acionamento do botão jogar.

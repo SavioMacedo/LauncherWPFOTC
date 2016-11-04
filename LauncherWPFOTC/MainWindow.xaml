@@ -84,7 +84,7 @@
                 Grid.RowSpan="2"
                 >
             <Button.Background>
-                <SolidColorBrush Color="#FF05003C" Opacity="0.95"/>
+                <SolidColorBrush Color="{Binding cor}" Opacity="0.95"/>
             </Button.Background>
         </Button>
         <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="60" Margin="85,40,0,0" RadiusY="9.5" Grid.Row="2" RadiusX="9.5" Stroke="Black" VerticalAlignment="Top" Width="660">
@@ -101,7 +101,7 @@
                      Width="620" 
                      Background="#4C000000" 
                      Opacity="0.8" 
-                     Foreground="#FF000944" 
+                     Foreground="{Binding cor}" 
                      BorderBrush="#00000000"/>
         <Label x:Name="label" 
                Grid.Column="1" 
@@ -131,7 +131,7 @@
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#B205003C" Offset="1"/>
-                    <GradientStop Color="#FF05003C" Offset="0.297"/>
+                    <GradientStop Color="{Binding cor}" Offset="0.297"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
             <Button x:Name="btnMinimize" Style="{StaticResource ResourceKey=NoAnimations}" Content="" Margin="943,1,23,45" Height="18" Click="btnMinimize_Click">

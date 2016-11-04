@@ -142,5 +142,17 @@ namespace LauncherWPFOTC.Properties {
                 this["EsquemaCor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ArquivosExtensos {
+            get {
+                return ((bool)(this["ArquivosExtensos"]));
+            }
+            set {
+                this["ArquivosExtensos"] = value;
+            }
+        }
     }
 }

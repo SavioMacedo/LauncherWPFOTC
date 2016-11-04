@@ -32,5 +32,8 @@
     <Setting Name="EsquemaCor" Type="System.String" Scope="User">
       <Value Profile="(Default)">#FF05003C</Value>
     </Setting>
+    <Setting Name="ArquivosExtensos" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -21,3 +21,5 @@ C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFO
 C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\obj\Release\LauncherWPFOTC.csproj.GenerateResource.Cache
 C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\obj\Release\LauncherWPFOTC.exe
 C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\obj\Release\LauncherWPFOTC.pdb
+C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\bin\Release\DotNetZip.dll
+C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\bin\Release\DotNetZip.xml

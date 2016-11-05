@@ -6,13 +6,13 @@ using System.Threading;
 // Classe Manipulação do cliente GitHub.
 namespace LauncherWPFOTC.Classes
 {
-    class GitHub
+    class GitHub:Config
     {
-        private string gitRepositorio = Properties.Settings.Default.gitRepositorio;
         private string git = AppDomain.CurrentDomain.BaseDirectory + "cliente/";
-        private string gitNome = Properties.Settings.Default.Nome;
-        private string gitEmail = Properties.Settings.Default.Email;
         BackgroundWorker Worker;
+
+        Sprite sprite = new Sprite();
+
         public void initGit(BackgroundWorker worker)
         {
             Worker = worker;
@@ -26,14 +26,22 @@ namespace LauncherWPFOTC.Classes
                 Worker.ReportProgress(50, "Verificando Integridade dos Arquivos ... 50%");
                 Thread.Sleep(100);
                 repo.Reset(ResetMode.Hard, "master");
-                Worker.ReportProgress(70, "Atualizando Arquivos ... 75%");
+                Worker.ReportProgress(65, "Atualizando Arquivos ... 65%");
                 repo.Branches.Update(
                     repo.Head,
                     b => b.Remote = "origin",
                     b => b.UpstreamBranch = "refs/heads/master"
                 );
-                MergeResult mergeResult = repo.Network.Pull(new Signature(gitNome,gitEmail, new DateTimeOffset(DateTime.Now)), new PullOptions());
-                Worker.ReportProgress(100, "Arquivos Atualizados e Verificados");
+                MergeResult mergeResult = repo.Network.Pull(new Signature(Nome,Email, new DateTimeOffset(DateTime.Now)), new PullOptions());
+                
+                //Verifica se Existe Sprite Compactada.
+                if (sprite.existe())
+                {
+                    Worker.ReportProgress(85, "Extraindo Arquivos Compactados ... 85%");
+                    sprite.extrair();
+                }
+
+                Worker.ReportProgress(100, "Atualização Finalizada ...  100%");
             }            
         }
     }

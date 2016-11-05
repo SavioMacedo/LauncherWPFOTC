@@ -1,39 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LauncherWPFOTC.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="gitRepositorio" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://github.com/f1nal1ty/ottesteversao.git</Value>
-    </Setting>
-    <Setting Name="Nome" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Coloca um Nome</Value>
-    </Setting>
-    <Setting Name="Email" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Coloca um Email</Value>
-    </Setting>
-    <Setting Name="OTClient" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="NomeOT" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Nome do Seu OT</Value>
-    </Setting>
-    <Setting Name="urlNoticia" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.google.com.br</Value>
-    </Setting>
-    <Setting Name="Background" Type="System.String" Scope="User">
-      <Value Profile="(Default)">background.jpg</Value>
-    </Setting>
-    <Setting Name="BtnFechar" Type="System.String" Scope="User">
-      <Value Profile="(Default)">close.png</Value>
-    </Setting>
-    <Setting Name="BtnMinimizar" Type="System.String" Scope="User">
-      <Value Profile="(Default)">minimize.png</Value>
-    </Setting>
-    <Setting Name="EsquemaCor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#FF05003C</Value>
-    </Setting>
-    <Setting Name="ArquivosExtensos" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

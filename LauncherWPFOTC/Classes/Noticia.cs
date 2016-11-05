@@ -2,15 +2,12 @@
 // Classe Manipulação da WebView de Noticias.
 namespace LauncherWPFOTC.Classes
 {
-    class Noticia
+    class Noticia:Config
     {
-        //setando padrão da url de noticias.
-        private string urlnoticia = Properties.Settings.Default.urlNoticia;
-
         //Puxa dados da string urlnoticia.
         public string getNoticia()
         {
-            return this.urlnoticia;
+            return urlNoticia;
         }
     }
 }

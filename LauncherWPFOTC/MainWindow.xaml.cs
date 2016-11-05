@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace LauncherWPFOTC
 {
@@ -14,6 +13,7 @@ namespace LauncherWPFOTC
         //Instanciando Classes.
         Noticia noticias = new Noticia();
         GitHub github = new GitHub();
+        Config config = new Config();
         //Declarando Variaveis.
         private Personalizacao personaliza;
         private bool flag = false;
@@ -24,10 +24,10 @@ namespace LauncherWPFOTC
             //Sistema de Personalizacao.
             personaliza = new Personalizacao
             {
-                urlbackground = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.Background,
-                urlfechar = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.BtnFechar,
-                urlminimize = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + Properties.Settings.Default.BtnMinimizar,
-                cor = Properties.Settings.Default.EsquemaCor
+                urlbackground = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + config.Background,
+                urlfechar = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + config.BtnFechar,
+                urlminimize = AppDomain.CurrentDomain.BaseDirectory + "imagens/" + config.BtnMinimizar,
+                cor = config.EsquemaCor
             };
             this.DataContext = personaliza;
             //Aciona a movimentação do launcher com o mouse.
@@ -44,9 +44,9 @@ namespace LauncherWPFOTC
         private void Window_Initialized(object sender, EventArgs e)
         {
             //Seta Titulo do Launcher.
-            label2.Content = Janela.Title + Properties.Settings.Default.NomeOT;
+            label2.Content = Janela.Title + config.NomeOT;
             //Seta configuração do OTC.
-            if (Properties.Settings.Default.OTClient == true)
+            if (config.OTClient == true)
                 comboBox.Visibility = Visibility.Visible;
             //Seta navegação da webview(noticasarea).
             noticiasArea.Navigate(noticias.getNoticia());
@@ -69,7 +69,7 @@ namespace LauncherWPFOTC
             {
                 try
                 {
-                    if (Properties.Settings.Default.OTClient)
+                    if (config.OTClient)
                     {
                         if (comboBox.SelectedIndex == 1)
                             Process.Start(AppDomain.CurrentDomain.BaseDirectory + "cliente/opengl.exe");
@@ -101,6 +101,7 @@ namespace LauncherWPFOTC
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            //Liberação do botão jogar.
             Janela.Cursor = Cursors.Arrow;
             btnJogar.IsEnabled = true;
             MessageBox.Show("Atualizado!!!");

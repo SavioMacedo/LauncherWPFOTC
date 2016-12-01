@@ -23,3 +23,6 @@ C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFO
 C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\obj\Release\LauncherWPFOTC.pdb
 C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\bin\Release\DotNetZip.dll
 C:\Users\savio\documents\visual studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\bin\Release\DotNetZip.xml
+C:\Users\savio\Documents\Visual Studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\bin\Release\musicas\principal.mp3
+C:\Users\savio\Documents\Visual Studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\obj\Release\LauncherWPFOTC.csprojResolveAssemblyReference.cache
+C:\Users\savio\Documents\Visual Studio 2015\Projects\LauncherWPFOTC\LauncherWPFOTC\obj\Release\LauncherWPFOTC_Content.g.cs

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace LauncherWPFOTC
 {
@@ -14,6 +15,7 @@ namespace LauncherWPFOTC
         Noticia noticias = new Noticia();
         GitHub github = new GitHub();
         Config config = new Config();
+        MediaPlayer musica = new MediaPlayer();
         //Declarando Variaveis.
         private Personalizacao personaliza;
         private bool flag = false;
@@ -32,6 +34,16 @@ namespace LauncherWPFOTC
             this.DataContext = personaliza;
             //Aciona a movimentação do launcher com o mouse.
             MouseDown += Windows_MouseDown;
+            //Tocar Musica.
+            musica.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "musicas/principal.mp3"));
+            musica.MediaEnded += Musica_MediaEnded;
+            musica.Play();
+        }
+
+        private void Musica_MediaEnded(object sender, EventArgs e)
+        {
+            musica.Position = TimeSpan.Zero;
+            musica.Play();
         }
 
         //Função que realiza a movimentação do Launcher com o mouse.
@@ -54,36 +66,66 @@ namespace LauncherWPFOTC
         //Função de acionamento do botão jogar.
         private void btnJogar_Click(object sender, RoutedEventArgs e)
         {
-            if (!flag)
+            try
             {
-                btnJogar.IsEnabled = false;
-                Janela.Cursor = Cursors.Wait;
-                BackgroundWorker worker = new BackgroundWorker();
-                worker.RunWorkerCompleted += worker_RunWorkerCompleted;
-                worker.WorkerReportsProgress = true;
-                worker.DoWork += worker_DoWork;
-                worker.ProgressChanged += worker_ProgressChanged;
-                worker.RunWorkerAsync();
-            }
-            else
-            {
-                try
+                if (!flag)
                 {
-                    if (config.OTClient)
+                    btnJogar.IsEnabled = false;
+                    Janela.Cursor = Cursors.Wait;
+                    BackgroundWorker worker = new BackgroundWorker();
+                    worker.RunWorkerCompleted += worker_RunWorkerCompleted;
+                    worker.WorkerReportsProgress = true;
+                    worker.DoWork += worker_DoWork;
+                    worker.ProgressChanged += worker_ProgressChanged;
+                    worker.RunWorkerAsync();
+                }
+                else
+                {
+                    try
                     {
-                        if (comboBox.SelectedIndex == 1)
-                            Process.Start(AppDomain.CurrentDomain.BaseDirectory + "cliente/opengl.exe");
+                        if (config.OTClient)
+                        {
+                            if (comboBox.SelectedIndex == 1)
+                            {
+                                Process cliente = new Process();
+                                cliente.StartInfo.WorkingDirectory = @"cliente";
+                                cliente.StartInfo.FileName = @"opengl.exe";
+                                cliente.StartInfo.CreateNoWindow = true;
+                                cliente.Start();
+
+                                Close();
+                            }
+                            else
+                            {
+                                Process cliente = new Process();
+                                cliente.StartInfo.WorkingDirectory = @"cliente";
+                                cliente.StartInfo.FileName = @"dx.exe";
+                                cliente.StartInfo.CreateNoWindow = true;
+                                cliente.Start();
+
+                                Close();
+                            }
+                        }
                         else
-                            Process.Start(AppDomain.CurrentDomain.BaseDirectory + "cliente/dx.exe");
+                        {
+                            Process cliente = new Process();
+                            cliente.StartInfo.WorkingDirectory = @"cliente";
+                            cliente.StartInfo.FileName = @"padrao.exe";
+                            cliente.StartInfo.CreateNoWindow = true;
+                            cliente.Start();
+
+                            Close();
+                        }
                     }
-                    else
-                        Process.Start(AppDomain.CurrentDomain.BaseDirectory + "cliente/padrao.exe");
-                    Close();
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
                 }
-                catch(Exception error)
-                {
-                    MessageBox.Show(error.Message);
-                }
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
             }
         }
 
@@ -117,6 +159,14 @@ namespace LauncherWPFOTC
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void textBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (musica.Volume == 0)
+                musica.Volume = 100;
+            else
+                musica.Volume = 0;
         }
     }
 }

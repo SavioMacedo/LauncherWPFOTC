@@ -146,5 +146,6 @@
                 <ImageBrush ImageSource="{Binding urlfechar}"/>
             </Button.Background>
         </Button>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,3.676,10,0" TextWrapping="Wrap" Width="106" Text="Parar/Tocar Musica" Foreground="White" Grid.Column="1" Height="16.324" VerticalAlignment="Top" MouseDown="textBlock_MouseDown"/>
     </Grid>
 </Window>
